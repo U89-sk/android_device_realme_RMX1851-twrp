@@ -1,0 +1,41 @@
+# Android fstab file.
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+
+# mount_point  fstype   device            device2                      flags
+
+# Other partitions
+/boot           emmc    /dev/block/bootdevice/by-name/boot             flags=backup=1;display="Boot";flashimg=1
+/recovery       emmc    /dev/block/bootdevice/by-name/recovery         flags=backup=1;display="Recovery";flashimg=1
+/dtbo           emmc    /dev/block/bootdevice/by-name/dtbo             flags=backup=1;display="Dtbo";flashimg=1
+/cache          ext4    /dev/block/bootdevice/by-name/cache            flags=backup=1;display="Cache";wipeingui
+/system_root   ext4    /dev/block/bootdevice/by-name/system            flags=display="System";backup=0;wipeingui
+/vendor         ext4    /dev/block/bootdevice/by-name/vendor             flags=display="Vendor";backup=0;wipeingui
+
+/system_image  emmc    /dev/block/bootdevice/by-name/system        flags=backup=1;display="system_image";flashimg=1
+/vendor_image  emmc    /dev/block/bootdevice/by-name/vendor         flags=backup=1;display="vendor_image";flashimg=1
+
+/data           ext4    /dev/block/bootdevice/by-name/userdata         flags=fileencryption=ice:aes-256-cts
+
+# partitions
+/vbmeta         emmc    /dev/block/bootdevice/by-name/vbmeta           flags=display="Vbmeta";flashimg;backup=1
+/splash          emmc   /dev/block/bootdevice/by-name/splash             flags=display="Splash";flashimg=1;backup=1
+
+# Persistent Firmware & Properties
+/persist	   ext4	      /dev/block/bootdevice/by-name/persist          flags=display="Persist"
+/persist_image	emmc	/dev/block/bootdevice/by-name/persist          flags=backup=1;display="Persist-Image";flashimg;backup=1
+
+# Modem partitions
+/modem		emmc	/dev/block/bootdevice/by-name/modem            flags=backup=1;display="Modem"
+/bluetooth	emmc	/dev/block/bootdevice/by-name/bluetooth        flags=backup=1;subpartitionof=/modem
+/dsp		emmc	/dev/block/bootdevice/by-name/dsp              flags=backup=1;subpartitionof=/modem
+
+# EFS partitions
+/efs1           emmc    /dev/block/bootdevice/by-name/modemst1         flags=backup=1;display=EFS
+/efs2           emmc    /dev/block/bootdevice/by-name/modemst2         flags=backup=1;subpartitionof=/efs1
+/efsc           emmc    /dev/block/bootdevice/by-name/fsc              flags=backup=1;subpartitionof=/efs1
+/efsg           emmc    /dev/block/bootdevice/by-name/fsg              flags=backup=1;subpartitionof=/efs1
+
+# Removable storage
+/sdcard1       auto   /dev/block/mmcblk1p1                               flags=display="MicroSD";storage;wipeingui=0;removable
+/usb_otg       auto    /dev/block/sda1       /dev/block/sda           flags=display="USB-Storage";storage;wipeingui=0;removable;fsflags="utf8"
