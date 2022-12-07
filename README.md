@@ -25,3 +25,8 @@ Front Camera  | 25 MP (S5K2X5, f/2.0, 1/2.8", 0.9µm)
 ## Device picture
 
 ![realme 3 Pro](https://static.realme.net/page/realme-3-pro/images/mo/specs-black-e5e1855f6b.jpg "Oppo Realme 3 Pro in black")
+
+## Special Thanks:
+@SathamHussainM For <a href="https://github.com/SathamHussainM/android_device_realme_bitra-twrp">Tree</a>
+
+@Artoriaa For <a href="https://www.pling.com/p/1439222/">Kernel</a>
