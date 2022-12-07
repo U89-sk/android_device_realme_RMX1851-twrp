@@ -22,7 +22,7 @@
 /splash         emmc    /dev/block/bootdevice/by-name/splash           flags=display="Splash";flashimg=1;backup=1
 
 # Persistent Firmware & Properties
-/persist	    ext4  	/dev/block/bootdevice/by-name/persist          flags=display="Persist"
+/persist        ext4    /dev/block/bootdevice/by-name/persist          flags=display="Persist"
 /persist_image	emmc  	/dev/block/bootdevice/by-name/persist          flags=backup=1;display="Persist-Image";flashimg=1;backup=1
 
 # Modem partitions
