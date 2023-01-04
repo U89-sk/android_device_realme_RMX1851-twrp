@@ -44,6 +44,13 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
 PRODUCT_PACKAGES += \
     qcom_decrypt \
     qcom_decrypt_fbe
+    
+PRODUCT_PACKAGES += \
+  update_engine_sideload
+  
+# ozip decrypt support
+PRODUCT_PACKAGES += \
+    ozip_decrypt
 
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file"
 
